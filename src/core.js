@@ -113,9 +113,9 @@ function sequence(start = 0, step = 1) {
 function deepEqual(firstObject, secondObject) {
     if (Object.is(firstObject, secondObject)) return true;
 
-    if((firstObject !== Object(firstObject)) || (secondObject !== Object(secondObject)) || (firstObject === null) || (secondObject === null)) return firstObject === secondObject;
+    if((typeof firstObject != "object") || (typeof secondObject != "object") || (firstObject === null) || (secondObject === null)) return firstObject === secondObject;
 
-    if ((typeof firstObject == "object" && firstObject != null) && (typeof secondObject == "object" && secondObject != null)) {
+    else {
 
       if (Object.keys(firstObject).length != Object.keys(secondObject).length) return false;
 
@@ -129,7 +129,6 @@ function deepEqual(firstObject, secondObject) {
       }
       return true;
     }
-    return false;
 }
 
 module.exports = {
