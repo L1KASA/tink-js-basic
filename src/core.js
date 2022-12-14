@@ -1,9 +1,6 @@
 //Напишите функцию, которая проверяет, является ли число целым используя побитовые операторы
 function isInteger(n) {
-    if (Number.isInteger(n)){
-        return true;
-    }
-    return false;
+    return(!(n - (n & n)));
 }
 
 //Напишите функцию, которая возвращает массив четных чисел от 2 до 20 включительно
@@ -116,7 +113,7 @@ function sequence(start = 0, step = 1) {
 function deepEqual(firstObject, secondObject) {
     if (Object.is(firstObject, secondObject)) return true;
 
-    if((firstObject !== Object(firstObject)) && (secondObject !== Object(secondObject))) return false;
+    if((firstObject !== Object(firstObject)) || (secondObject !== Object(secondObject)) || (firstObject === null) || (secondObject === null)) return firstObject === secondObject;
 
     if ((typeof firstObject == "object" && firstObject != null) && (typeof secondObject == "object" && secondObject != null)) {
 
